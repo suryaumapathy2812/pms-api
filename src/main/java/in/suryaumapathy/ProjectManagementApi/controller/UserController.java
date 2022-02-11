@@ -3,11 +3,14 @@ package in.suryaumapathy.ProjectManagementApi.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,6 +40,12 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @PostMapping("test")
+    public Integer test(@RequestHeader Object request) {
+        System.out.println(request.toString());
+        return 1;
+    }
+
     @PostMapping
     public Integer createUser(@RequestBody UserDTO user) {
         return userService.createUser(user);
@@ -54,7 +63,9 @@ public class UserController {
     }
 
     @PostMapping("{id}/token")
-    public Integer createUserToken(@PathVariable("id") Integer userId, @RequestBody IntegrationTokenDTO token) {
+    public Integer createUserToken(
+            @PathVariable("id") Integer userId,
+            @RequestBody IntegrationTokenDTO token) {
         System.out.println(userId);
         System.out.println(token);
         token.setUserId(userId);
@@ -64,24 +75,30 @@ public class UserController {
 
     @GetMapping("{id}/token/provider/{provider}")
     public IntegrationTokenDTO getUserToken(@PathVariable("id") Integer userId, @PathVariable String provider) {
-        return integrationTokenService.getUserToken(userId, provider);
+        return integrationTokenService.getUserToken(userId, provider.toUpperCase());
     }
 
-    @GetMapping("{id}/client")
-    public List<IntegrationTokenDTO> getUserClient(@PathVariable("id") Integer userId) {
-        return integrationTokenService.getAllUserTokens(userId);
-    }
+    // @GetMapping("{id}/client")
+    // public List<IntegrationTokenDTO> getUserClient(@PathVariable("id") Integer
+    // userId) {
+    // return integrationTokenService.getAllUserTokens(userId);
+    // }
 
-    @PostMapping("{id}/client")
-    public Integer createUserClient(@PathVariable("id") Integer userId, @RequestBody IntegrationTokenDTO client) {
-        client.setUserId(userId);
-        client.setCreatedBy(userId);
-        return integrationTokenService.createUserClient(client);
-    }
+    // @PostMapping("{id}/client")
+    // public Integer createUserClient(
+    // @PathVariable("id") Integer userId,
+    // @RequestBody IntegrationTokenDTO client) {
+    // System.out.println(userId);
+    // System.out.println(client);
+    // client.setUserId(userId);
+    // client.setCreatedBy(userId);
+    // return integrationTokenService.createUserClient(client);
+    // }
 
-    @GetMapping("{id}/client/provider/{provider}")
-    public IntegrationTokenDTO getUserClient(@PathVariable("id") Integer userId, @PathVariable String provider) {
-        return integrationTokenService.getUserToken(userId, provider);
-    }
+    // @GetMapping("{id}/client/provider/{provider}")
+    // public IntegrationTokenDTO getUserClient(@PathVariable("id") Integer userId,
+    // @PathVariable String provider) {
+    // return integrationTokenService.getUserToken(userId, provider.toUpperCase());
+    // }
 
 }
