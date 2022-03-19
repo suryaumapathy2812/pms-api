@@ -1,4 +1,4 @@
-package in.suryaumapathy.ProjectManagementApi.DTO;
+package in.suryaumapathy.ProjectManagementApi.Dto;
 
 import java.time.LocalDateTime;
 

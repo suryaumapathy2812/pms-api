@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class ProviderToken {
 
 	private Integer id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String status;
-    private Boolean active;
-    private LocalDateTime createdDate;
-    private LocalDateTime modifiedDate;
+	private Provider providerId;
+	private User userId;
+	private String token;
+	private String clientId;
+	private String ClientSecret;
+	private LocalDateTime createdAt;
+	private LocalDateTime modifiedAt;
 	
 }

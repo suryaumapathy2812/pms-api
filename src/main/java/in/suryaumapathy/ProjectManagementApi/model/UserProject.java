@@ -6,19 +6,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Repository {
+public class UserProject {
 
 	private Integer id;
-	private String username;
-	private String repoName;
-	private String repoUrl;
-	private String status;
-	private Boolean active;
+	private User userId;
+	private Project projectId;
+	private String userRole;
 	private User createdBy;
-	private User modfiedBy;
+	private User modifiedBy;
 	private LocalDateTime createdAt;
 	private LocalDateTime modifiedAt;
 	

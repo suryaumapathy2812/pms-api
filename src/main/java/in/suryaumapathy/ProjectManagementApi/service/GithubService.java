@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import in.suryaumapathy.ProjectManagementApi.DTO.GithubDTO;
-import in.suryaumapathy.ProjectManagementApi.DTO.IntegrationTokenDTO;
+import in.suryaumapathy.ProjectManagementApi.Dto.GithubDTO;
 
 @Service
 public class GithubService {
@@ -18,8 +17,8 @@ public class GithubService {
     @Autowired
     RestTemplate restTemplate;
 
-    @Autowired
-    IntegrationTokenService integrationTokenService;
+    // @Autowired
+    // IntegrationTokenService integrationTokenService;
 
     private final String base_url = "https://api.github.com/";
 
@@ -27,8 +26,8 @@ public class GithubService {
         HttpHeaders headers = new org.springframework.http.HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("accept", "application/vnd.github.v3+json");
-        IntegrationTokenDTO tokenDetail = integrationTokenService.getUserToken(userId, "GITHUB");
-        headers.set("Authorization", "Bearer " + tokenDetail.getToken());
+        // IntegrationTokenDTO tokenDetail = integrationTokenService.getUserToken(userId, "GITHUB");
+        // headers.set("Authorization", "Bearer " + tokenDetail.getToken());
         return headers;
     }
 

@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Repository {
+public class ProjectRespository {
 
 	private Integer id;
-	private String username;
-	private String repoName;
-	private String repoUrl;
-	private String status;
-	private Boolean active;
+	private Project projectId;
+	private Repository repoId;
+	
 	private User createdBy;
-	private User modfiedBy;
+	private User modifiedBy;
+	
 	private LocalDateTime createdAt;
 	private LocalDateTime modifiedAt;
+	
 	
 }

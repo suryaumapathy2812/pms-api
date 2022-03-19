@@ -1,4 +1,4 @@
-package in.suryaumapathy.ProjectManagementApi.model;
+package in.suryaumapathy.ProjectManagementApi.Model;
 
 import java.time.LocalDateTime;
 
@@ -10,18 +10,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Project {
-
+	
     private Integer id;
     private String name;
     private String description;
-
-    private String active;
+    
     private String status;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
-
+    private Boolean active;
+    
     private User createdBy;
     private User modifiedBy;
-
+    
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
+	
 }

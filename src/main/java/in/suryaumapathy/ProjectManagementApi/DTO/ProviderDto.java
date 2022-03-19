@@ -1,4 +1,4 @@
-package in.suryaumapathy.ProjectManagementApi.Model;
+package in.suryaumapathy.ProjectManagementApi.Dto;
 
 import java.time.LocalDateTime;
 
@@ -9,17 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Repository {
+public class ProviderDto {
 
 	private Integer id;
-	private String username;
-	private String repoName;
-	private String repoUrl;
+	private String name;
+	
 	private String status;
 	private Boolean active;
-	private User createdBy;
-	private User modfiedBy;
+	
 	private LocalDateTime createdAt;
-	private LocalDateTime modifiedAt;
+	private LocalDateTime modifiedAt;	
 	
 }
